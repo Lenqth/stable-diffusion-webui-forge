@@ -33,7 +33,7 @@ class UpscalerSwinIR(Upscaler):
         self.scalers = scalers
 
     def do_upscale(self, img: Image.Image, model_file: str) -> Image.Image:
-        prepare_free_memory()
+        # prepare_free_memory()
 
         current_config = (model_file, shared.opts.SWIN_tile)
 
@@ -56,7 +56,7 @@ class UpscalerSwinIR(Upscaler):
             scale=model.scale,
             desc="SwinIR",
         )
-        devices.torch_gc()
+        # devices.torch_gc()
         return img
 
     def load_model(self, path, scale=4):
